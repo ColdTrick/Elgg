@@ -22,14 +22,14 @@ $tabs = array(
 	),
 );
 
-// sets default selected item
-if (strpos(full_url(), 'filter') === false) {
-	$tabs['newest']['selected'] = true;
-}
-
 foreach ($tabs as $name => $tab) {
 	$tab['name'] = $name;
 
+	// sets default selected item
+	if ($vars['selected'] == $name) {
+		$tab['selected'] = true;
+	}
+	
 	elgg_register_menu_item('filter', $tab);
 }
 
